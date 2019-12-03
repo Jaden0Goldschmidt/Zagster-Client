@@ -26,7 +26,7 @@ function updateView() {
 
 // This is what your JSON data looks like given the endpoint /rides/count/per_month 
 //If you type https://zagster-service.herokuapp.com/rides/count/per_month in your web browser, you'll see this data
-// {"2016":[{"9":220},{"10":141},{"11":89},{"12":16}],
+// {0"2016":[{"9":220},{"10":141},{"11":89},{"12":16}],
 // "2017":[{"1":20},{"2":31},{"3":79},{"4":88},{"5":156},{"6":301},{"7":405},{"8":187},{"9":401},{"10":353},{"11":113},{"12":79}],
 // "2018":[{"1":94},{"2":83},{"3":154},{"4":1216},{"5":2400},{"6":1756},{"7":2748},{"8":1912},{"9":3648},{"10":2404}]}
 
@@ -42,65 +42,79 @@ function perYear(data) {
     //extracting data for each month.We need to  specify which array element and then specify the key before we can get the data for that key
     //So data2016[0][9] means look at the zero-ith array element {"9":220} and extract the data associated the key 9
     //result should be 220 
-    console.log(data2016[0][9]) //print daya to the console to make sure we did it right
-    my_data.push(data2016[0][9]) //add the data to the my_data array 
-    console.log(data2016[1][10])  //looks at the one-ith array element {"10":141} extract data for key 10
-    my_data.push(data2016[1][10])  //add the data to the my_data array 
-    //keep going to get all data points
-    // {"2016":[{"9":22},{"10":21},{"11":26},{"12":4}],
-    console.log(data2016[2][11])
-    my_data.push(data2016[2][11])  
-    console.log(data2016[3][12])  
-    my_data.push(data2016[3][12])
+    // console.log(data2016[0][9]) //print daya to the console to make sure we did it right
+    // my_data.push(data2016[0][9]) //add the data to the my_data array 
+    // console.log(data2016[1][10])  //looks at the one-ith array element {"10":141} extract data for key 10
+    // my_data.push(data2016[1][10])  //add the data to the my_data array 
+    // //keep going to get all data points
+    // // {"2016":[{"9":22},{"10":21},{"11":26},{"12":4}],
+    // console.log(data2016[2][11])
+    // my_data.push(data2016[2][11])  
+    // console.log(data2016[3][12])  
+    // my_data.push(data2016[3][12])
+    for(let i = 0; i < data2016.length; i++){
+        my_data.push(data2016[i][i+9])
+    }   
+
+    function add_data(data) {
+        for(let i = 0; i < data.length; i++){
+            if (data[i] !== void 0) {
+                my_data.push(data[i][i+1])
+            }   
+        }
+        return my_data;
+    }
+    add_data(data2017)
+    add_data(data2018)
     // 2017// "2017":[{"1":2},{"2":4},{"3":5},{"4":9},{"5":20},{"6":19},{"7":21},{"8":1},{"9":45},{"10":53},{"11":20}],
-    console.log(data2017[0][1])
-    my_data.push(data2017[0][1])  
-    console.log(data2017[1][2])  
-    my_data.push(data2017[1][2])
-    console.log(data2017[2][3])
-    my_data.push(data2017[2][3])  
-    console.log(data2017[3][4])  
-    my_data.push(data2017[3][4])
-    console.log(data2017[4][5])
-    my_data.push(data2017[4][5])  
-    console.log(data2017[5][6])  
-    my_data.push(data2017[5][6])
-    console.log(data2017[6][7])
-    my_data.push(data2017[6][7])  
-    console.log(data2017[7][8])  
-    my_data.push(data2017[7][8])
-    console.log(data2017[8][9])
-    my_data.push(data2017[8][9])  
-    console.log(data2017[9][10])  
-    my_data.push(data2017[9][10])
-    console.log(data2017[10][11])
-    my_data.push(data2017[10][11])
-    // 2018 // "2018":[{"1":5},{"2":4},{"3":7},{"4":69},{"5":164},{"6":76},{"7":112},{"8":92},{"9":332},{"10":492}]}
-    console.log(data2018[0][1])  
-    my_data.push(data2018[0][1])
-    console.log(data2018[1][2])  
-    my_data.push(data2018[1][2])
-    console.log(data2018[2][3])  
-    my_data.push(data2018[2][3])
-    console.log(data2018[3][4])  
-    my_data.push(data2018[3][4])
-    console.log(data2018[4][5])  
-    my_data.push(data2018[4][5])
-    console.log(data2018[5][6])  
-    my_data.push(data2018[5][6])
-    console.log(data2018[6][7])  
-    my_data.push(data2018[6][7])
-    console.log(data2018[7][8])  
-    my_data.push(data2018[7][8])
-    console.log(data2018[8][9])  
-    my_data.push(data2018[8][9])
-    console.log(data2018[9][10])  
-    my_data.push(data2018[9][10])
+    // console.log(data2017[0][1])
+    // my_data.push(data2017[0][1])  
+    // console.log(data2017[1][2])  
+    // my_data.push(data2017[1][2])
+    // console.log(data2017[2][3])
+    // my_data.push(data2017[2][3])  
+    // console.log(data2017[3][4])  
+    // my_data.push(data2017[3][4])
+    // console.log(data2017[4][5])
+    // my_data.push(data2017[4][5])  
+    // console.log(data2017[5][6])  
+    // my_data.push(data2017[5][6])
+    // console.log(data2017[6][7])
+    // my_data.push(data2017[6][7])  
+    // console.log(data2017[7][8])  
+    // my_data.push(data2017[7][8])
+    // console.log(data2017[8][9])
+    // my_data.push(data2017[8][9])  
+    // console.log(data2017[9][10])  
+    // my_data.push(data2017[9][10])
+    // console.log(data2017[10][11])
+    // my_data.push(data2017[10][11])
+    // // 2018 // "2018":[{"1":5},{"2":4},{"3":7},{"4":69},{"5":164},{"6":76},{"7":112},{"8":92},{"9":332},{"10":492}]}
+    // console.log(data2018[0][1])  
+    // my_data.push(data2018[0][1])
+    // console.log(data2018[1][2])  
+    // my_data.push(data2018[1][2])
+    // console.log(data2018[2][3])  
+    // my_data.push(data2018[2][3])
+    // console.log(data2018[3][4])  
+    // my_data.push(data2018[3][4])
+    // console.log(data2018[4][5])  
+    // my_data.push(data2018[4][5])
+    // console.log(data2018[5][6])  
+    // my_data.push(data2018[5][6])
+    // console.log(data2018[6][7])  
+    // my_data.push(data2018[6][7])
+    // console.log(data2018[7][8])  
+    // my_data.push(data2018[7][8])
+    // console.log(data2018[8][9])  
+    // my_data.push(data2018[8][9])
+    // console.log(data2018[9][10])  
+    // my_data.push(data2018[9][10])
     //challenge - use a loop to extract the data
     //challenge extract the keys from the JSON data instead of manually typing them into the chart
      
   }
-  
+  console.log(my_data)
 // Funtion definition for updateChart()
 // This function creates your chart
 // Make sure you have a <canvas> element in your index with an id="myChart"
@@ -112,7 +126,7 @@ function updateChart() {
 
         // The data for our dataset
         data: {
-            labels: ["2016", "2017", "2018"],
+            labels: ["SEP2016","OCT2016","NOV2016","DEC2016", "JAN2017", "FEB2017", "MAR2017","APR2017","MAY2017","JUN2017","JUL2017","AUG2017","SEP2017","OCT2017","NOV2017", "JAN2018", "FEB2018", "MAR2018","APR2018","MAY2018","JUN2018","JUL2018","AUG2018","SEP2018","OCT2018"],
             // for every element in my_data: add to list
             datasets: [{
                 label: 'Zagster Number of Rides Per Month in 2016',
