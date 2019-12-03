@@ -1,6 +1,7 @@
 body {
     font-family: "HelveticaNeue", "Arial", sans-serif;
-  }
+    background-color: rgb(132, 175, 175);
+    }
 
   h2 { 
     font-size: 30pt;
