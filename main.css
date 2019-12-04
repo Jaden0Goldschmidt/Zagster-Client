@@ -4,5 +4,8 @@ body {
     }
 
   h2 { 
-    font-size: 30pt;
+    font-size: 20pt;
+  }
+  h3 {
+    font-size: 20pt;
   }
