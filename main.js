@@ -1,4 +1,4 @@
-const BASE_URL = "https://zagster-service.herokuapp.com"
+// const BASE_URL = "https://zagster-service.herokuapp.com"
 
 // $(updateGraph)
 // $(updateView)
